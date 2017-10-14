@@ -1,3 +1,45 @@
+body {
+  background-color: #455a64;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+
+
+
+header{
+  background-color:blue;
+  height: 300px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+
+header h1{
+  display: inline-flex;
+  color: #fff;
+  font-size: 55px;
+}
+
+header img{
+  display: inline;
+  height: 55px;
+}
+
+#link-form input{
+  display: block;
+  width: 100%;
+}
+
+#card-wrap{
+  background-color: #cfd8dc;
+  width:50%;
+}
+
+
+
 .card {
   border: 1px solid #607D8B;
 }
@@ -18,4 +60,95 @@
 .card button {
   color: #455A64;
   border: none;
+}
+
+
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
+header {
+      width:100%;
+      display: inline-block;
+    }
+}
+ 
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+  header {
+        width:50%;
+        display: inline-block;
+      }
+}
+ 
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+  header{
+    width:100%;
+  }
+}
+ 
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px) {
+  header {
+        width:50%;
+        display: inline-block;
+      }
+}
+ 
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : landscape) {
+  header {
+        width:50%;
+        display: inline-block;
+      }
+}
+ 
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : portrait) {
+  header {
+        width:50%;
+        display: inline-block;
+      }
+}
+ 
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+  header {
+    width:50%;
+    display: inline-block;
+  }
+}
+ 
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+  header {
+      width:50%;
+      display: inline-block;
+    }
+}
+ 
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+  header {
+        width:50%;
+        display: inline-block;
+      }
 }
