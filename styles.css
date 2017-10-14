@@ -1,14 +1,26 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.card-stack {
+  background-color: #CFD8DC;
+  padding: 10px;
+  width: 50%;
+}
 .card {
+  background-color: white;
   border: 1px solid #607D8B;
+  padding: 10px;
 }
 
 .card h4 {
   color: #455A64;
+  font-weight: 800;
 }
 
 .card a {
   color: #607D8B;
-  text-decoration-color: #f2f4f4;
+  border-bottom: 2px solid #f2f4f4;
+  text-decoration: none;
 }
 
 .card hr {
@@ -18,4 +30,11 @@
 .card button {
   color: #455A64;
   border: none;
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-color: #f2f4f4;
+
+}
+#delete-card-button {
+  margin: 0px 0px 0px auto;
 }
