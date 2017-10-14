@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #455a64;
   font-family: 'Open Sans', sans-serif;
@@ -33,40 +37,98 @@ header img{
   width: 100%;
 }
 
-#card-wrap{
+#bookmark-wrap{
   background-color: #cfd8dc;
-  width:50%;
+  display: inline-block;
+  width:49%;
 }
 
 
 
-.card {
-  border: 1px solid #607D8B;
+.bookmark {
+  border: 2px solid #607D8B;
+  background-color: white;
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  position: relative; 
 }
 
-.card h4 {
+.bookmark h4 {
   color: #455A64;
+  font-weight: 800;
 }
 
-.card a {
+.bookmark a {
   color: #607D8B;
+  text-decoration: underline;
   text-decoration-color: #f2f4f4;
 }
 
-.card hr {
+.bookmark hr {
   color: #CFD8DC;
 }
 
-.card button {
-  color: #455A64;
+.bookmark button {
+  background-color: transparent;
   border: none;
+  color: #455A64;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #F2F4F4;
 }
 
+.bookmark #delete-bookmark-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.bookmark a:hover,
+.bookmark button:hover {
+  color: #455A64;
+  font-weight: 800;
+  text-decoration-color: #FFC107;
+}
+
+.bookmark #delete-bookmark-button:hover {
+  font-weight: 400;
+  text-decoration-color: #FFC107;
+}
+
+.bookmark #form-wrap {
+  width: 50%;
+}
+
+div.read {
+  background-color: #F2F4F4;
+}
+
+a.read {
+  text-decoration-color: #CFD8DC;
+}
+
+button.read {
+  color: #F05A28;
+  font-weight: 800;
+  text-decoration: none;
+}
+/*.bookmark #delete.bookmark-button {
+  position: absolute;
+  bottom: 10px
+  right: 10px;
+}*/
+
+/*.bookmark #read-button {
+  position: absolute;
+  bottom: 10px
+  left: 10px;
+}*/
 
 
 
-
-/* Smartphones (portrait and landscape) ----------- */
+/*
+/* Smartphones (portrait and landscape) ----------- 
 @media only screen
 and (min-width : 320px)
 and (max-width : 480px) {
@@ -76,7 +138,7 @@ header {
     }
 }
  
-/* Smartphones (landscape) ----------- */
+/* Smartphones (landscape) ----------- 
 @media only screen
 and (min-width : 321px) {
   header {
@@ -85,7 +147,7 @@ and (min-width : 321px) {
       }
 }
  
-/* Smartphones (portrait) ----------- */
+/* Smartphones (portrait) ----------- 
 @media only screen
 and (max-width : 320px) {
   header{
@@ -93,7 +155,7 @@ and (max-width : 320px) {
   }
 }
  
-/* iPads (portrait and landscape) ----------- */
+/* iPads (portrait and landscape) ----------- 
 @media only screen
 and (min-width : 768px)
 and (max-width : 1024px) {
@@ -103,7 +165,7 @@ and (max-width : 1024px) {
       }
 }
  
-/* iPads (landscape) ----------- */
+/* iPads (landscape) ----------- 
 @media only screen
 and (min-width : 768px)
 and (max-width : 1024px)
@@ -114,7 +176,7 @@ and (orientation : landscape) {
       }
 }
  
-/* iPads (portrait) ----------- */
+/* iPads (portrait) ----------- 
 @media only screen
 and (min-width : 768px)
 and (max-width : 1024px)
@@ -125,7 +187,7 @@ and (orientation : portrait) {
       }
 }
  
-/* Desktops and laptops ----------- */
+/* Desktops and laptops ----------- 
 @media only screen
 and (min-width : 1224px) {
   header {
@@ -134,7 +196,7 @@ and (min-width : 1224px) {
   }
 }
  
-/* Large screens ----------- */
+/* Large screens ----------- 
 @media only screen
 and (min-width : 1824px) {
   header {
@@ -143,7 +205,7 @@ and (min-width : 1824px) {
     }
 }
  
-/* iPhone 4 ----------- */
+/* iPhone 4 ----------- 
 @media
 only screen and (-webkit-min-device-pixel-ratio : 1.5),
 only screen and (min-device-pixel-ratio : 1.5) {
@@ -151,4 +213,4 @@ only screen and (min-device-pixel-ratio : 1.5) {
         width:50%;
         display: inline-block;
       }
-}
+} 
