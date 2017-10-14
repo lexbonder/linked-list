@@ -4,21 +4,21 @@
   <title>Link List</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="reset.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <section>
+  <main>
     <header id="form-wrap">
-        <h1>Linked <img src="images/linked-list-logo.svg"> List</h1>
+        <h1>Linked <span><img src="images/linked-list-logo.svg"></span> List</h1>
         <form id="link-form">
           <fieldset>
               <input type="text" name="link-title" placeholder="Website Title">
-              <input type="text" name="link-url" placeholder="Website UrL">
+              <input type="text" name="link-url" placeholder="Website URL">
+              <button id="enter-button" type="button" name="Enter-button">Enter</button>
           </fieldset>
         </form>
     </header>
-    <article id="card-wrap">
+    <section id="card-wrap">
       <div class = "card">
         <h4>The Website Title</h4>
         <hr>
@@ -29,8 +29,8 @@
         <label for = "delete-card-button" hidden></label>
         <button class = "card-button" id = "delete-card-button">  Delete</  button>
     </div>
-    </article>
-  </section>
+    </section>
+  </main>
   <script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>
