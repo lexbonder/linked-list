@@ -1,0 +1,21 @@
+.card {
+  border: 1px solid #607D8B;
+}
+
+.card h4 {
+  color: #455A64;
+}
+
+.card a {
+  color: #607D8B;
+  text-decoration-color: #f2f4f4;
+}
+
+.card hr {
+  color: #CFD8DC;
+}
+
+.card button {
+  color: #455A64;
+  border: none;
+}
