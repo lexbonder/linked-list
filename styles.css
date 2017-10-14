@@ -1,5 +1,10 @@
-*{
+* {
   box-sizing: border-box;
+}
+
+body {
+  background-color: #455a64;
+  font-family: 'Open Sans', sans-serif;
 }
 
 html{
@@ -57,40 +62,98 @@ header img{
   cursor: pointer;
 }
 
+
 #enter-button:hover{
   background-color: #ffd773;
 }
 
-
-#card-wrap{
+#bookmark-wrap{
   background-color: #cfd8dc;
-  width:50%;
   display: inline-block;
+  width:49%;
 }
 
 
 
-.card {
-  border: 1px solid #607D8B;
+.bookmark {
+  border: 2px solid #607D8B;
+  background-color: white;
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  position: relative; 
 }
 
-.card h4 {
+.bookmark h4 {
   color: #455A64;
+  font-weight: 800;
 }
 
-.card a {
+.bookmark a {
   color: #607D8B;
+  text-decoration: underline;
   text-decoration-color: #f2f4f4;
 }
 
-.card hr {
+.bookmark hr {
   color: #CFD8DC;
 }
 
-.card button {
-  color: #455A64;
+.bookmark button {
+  background-color: transparent;
   border: none;
+  color: #455A64;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #F2F4F4;
 }
+
+.bookmark #delete-bookmark-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.bookmark a:hover,
+.bookmark button:hover {
+  color: #455A64;
+  font-weight: 800;
+  text-decoration-color: #FFC107;
+}
+
+.bookmark #delete-bookmark-button:hover {
+  font-weight: 400;
+  text-decoration-color: #FFC107;
+}
+
+.bookmark #form-wrap {
+  width: 50%;
+}
+
+div.read {
+  background-color: #F2F4F4;
+}
+
+a.read {
+  text-decoration-color: #CFD8DC;
+}
+
+button.read {
+  color: #F05A28;
+  font-weight: 800;
+  text-decoration: none;
+}
+/*.bookmark #delete.bookmark-button {
+  position: absolute;
+  bottom: 10px
+  right: 10px;
+}*/
+
+/*.bookmark #read-button {
+  position: absolute;
+  bottom: 10px
+  left: 10px;
+}*/
 
 
 
