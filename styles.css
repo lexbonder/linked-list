@@ -2,22 +2,22 @@
   box-sizing: border-box;
 }
 
-
 body {
-  background-color: #455a64;
-  font-family: 'Open Sans', sans-serif;
   overflow: hidden;
-}
 
-html{
-  height: 100%;
-}
-
-
-body {
   background-color: #455a64;
   font-family: 'Open Sans', sans-serif;
+}
+
+html {
   height: 100%;
+}
+
+body {
+  height: 100%;
+
+  background-color: #455a64;
+  font-family: 'Open Sans', sans-serif;
 }
 
 input, 
@@ -30,13 +30,15 @@ main {
 }
 
 header {
+  vertical-align: top;
+
   display: inline-block;
+  margin: 15% auto 30px auto;
+  min-width: 400px;
   padding: 0 30px;
   width:50%;
-  min-width: 435px;
-  vertical-align: top;
-  margin:20px auto 30px auto;
 
+  font-weight: 800;
 }
 
 header h1 {
@@ -47,52 +49,58 @@ header h1 {
 
 header img {
   display: inline;
-  height: 55px;
+  height: 45px;
 }
 
-#link-form input{
+#link-form input {
   display: block;
-  width: 100%;
   height: 40px;
-  padding-left: 10px;
-  font-size: 1.25em;
   margin:10px 0;
-}
-
-#enter-button{
+  padding-left: 10px;
   width: 100%;
-  height: 40px;
-  color:#fff;
-  background-color: #ffc107;
+
   font-size: 1.25em;
-  text-align: center;
-  font-weight: bold;
-  border:none;
-  cursor: pointer;
 }
 
+#enter-button {
+  border: none;
+  border-radius: 0px;
+  height: 40px;
+  width: 100%;
+  
+  background-color: #ffc107;
+  color:#fff;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: 800;
+  text-align: center;
+}
 
-#enter-button:hover{
+#enter-button:hover {
   background-color: #ffd773;
 }
 
-#bookmark-wrap{
-  background-color: #cfd8dc;
+#bookmark-wrap {
+  position: absolute;
+  right: 0px;
+
   display: inline-block;
-  width:49%;
   height: 100%;
   overflow-y: auto;
+  width:50%;
+
+  background-color: #cfd8dc;
 }
 
-
-
 .bookmark {
+  position: relative;
+
   border: 2px solid #607D8B;
-  background-color: white;
   display: block;
   margin: 10px;
   padding: 10px;
-  position: relative; 
+
+  background-color: white;
 }
 
 .bookmark h4 {
@@ -111,17 +119,18 @@ header img {
 }
 
 .bookmark button {
-  background-color: transparent;
   border: none;
+
   color: #455A64;
   cursor: pointer;
+  background-color: transparent;
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
 }
 
 .bookmark #delete-bookmark-button {
-  position: absolute;
   bottom: 10px;
+  position: absolute;
   right: 10px;
 }
 
@@ -154,110 +163,24 @@ header img {
   font-weight: 800;
   text-decoration: none;
 }
-/*.bookmark #delete.bookmark-button {
-  position: absolute;
-  bottom: 10px
-  right: 10px;
-}*/
 
-/*.bookmark #read-button {
-  position: absolute;
-  bottom: 10px
-  left: 10px;
-}*/
-
-
-
-
-
-@media screen
-and (max-width : 865px) {
-
-header {
-      width:100%;
-      display: block;
-    }
-
-  #bookmark-wrap{
-    width:100%;
+@media screen and (max-width : 865px) {
+  header {
     display: block;
+    margin: 30px auto;
+    width:100%;
   }
-}
- 
-/* Smartphones (landscape) ----------- 
-@media only screen
-and (min-width : 321px) {
-  header {
-        width:50%;
-        display: inline-block;
-      }
-}
- 
-/* Smartphones (portrait) ----------- 
-@media only screen
-and (max-width : 320px) {
-  header{
+
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  header img {
+    height: 35px;
+  }
+
+  #bookmark-wrap {
+    display: block;
     width:100%;
   }
 }
- 
-/* iPads (portrait and landscape) ----------- 
-@media only screen
-and (min-width : 768px)
-and (max-width : 1024px) {
-  header {
-        width:50%;
-        display: inline-block;
-      }
-}
- 
-/* iPads (landscape) ----------- 
-@media only screen
-and (min-width : 768px)
-and (max-width : 1024px)
-and (orientation : landscape) {
-  header {
-        width:50%;
-        display: inline-block;
-      }
-}
- 
-/* iPads (portrait) ----------- 
-@media only screen
-and (min-width : 768px)
-and (max-width : 1024px)
-and (orientation : portrait) {
-  header {
-        width:50%;
-        display: inline-block;
-      }
-}
- 
-/* Desktops and laptops ----------- 
-@media only screen
-and (min-width : 1224px) {
-  header {
-    width:50%;
-    display: inline-block;
-  }
-}*/
- 
-/* Large screens ----------- 
-@media only screen
-and (min-width : 1824px) {
-  header {
-      width:50%;
-      display: inline-block;
-    }
-}
- 
-/* iPhone 4 ----------- 
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-  header {
-        width:50%;
-        display: inline-block;
-      }
-}
-
