@@ -2,9 +2,11 @@
   box-sizing: border-box;
 }
 
+
 body {
   background-color: #455a64;
   font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
 }
 
 html{
@@ -18,25 +20,32 @@ body {
   height: 100%;
 }
 
-main{
-  display: flex;
-  justify-content: center;
+input, 
+button {
+  outline: none;
+}
+
+main {
   height: 100%;
 }
 
-header{
-  box-sizing: border-box;
+header {
+  display: inline-block;
   padding: 0 30px;
   width:50%;
-  margin-top: 25%;
+  min-width: 435px;
+  vertical-align: top;
+  margin:20px auto 30px auto;
+
 }
 
-header h1{
+header h1 {
   color: #fff;
   font-size: 3.313em;
+  text-align: center;
 }
 
-header img{
+header img {
   display: inline;
   height: 55px;
 }
@@ -71,6 +80,8 @@ header img{
   background-color: #cfd8dc;
   display: inline-block;
   width:49%;
+  height: 100%;
+  overflow-y: auto;
 }
 
 
@@ -130,15 +141,15 @@ header img{
   width: 50%;
 }
 
-div.read {
+.bookmark.read {
   background-color: #F2F4F4;
 }
 
-a.read {
+.bookmark.read a {
   text-decoration-color: #CFD8DC;
 }
 
-button.read {
+.bookmark.read #read-button {
   color: #F05A28;
   font-weight: 800;
   text-decoration: none;
@@ -159,14 +170,18 @@ button.read {
 
 
 
-/* Smartphones (portrait and landscape) ----------- 
-@media only screen
-and (min-width : 320px)
-and (max-width : 480px) {
+@media screen
+and (max-width : 865px) {
+
 header {
       width:100%;
-      display: inline-block;
+      display: block;
     }
+
+  #bookmark-wrap{
+    width:100%;
+    display: block;
+  }
 }
  
 /* Smartphones (landscape) ----------- 
@@ -225,7 +240,7 @@ and (min-width : 1224px) {
     width:50%;
     display: inline-block;
   }
-}
+}*/
  
 /* Large screens ----------- 
 @media only screen

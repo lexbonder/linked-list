@@ -5,6 +5,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
   <main>
@@ -12,18 +13,19 @@
         <h1>Linked <span><img src="images/linked-list-logo.svg"></span> List</h1>
         <form id="link-form">
           <fieldset>
-              <input type="text" name="link-title" placeholder="Website Title">
-              <input type="text" name="link-url" placeholder="Website URL">
-              <button id="enter-button" type="button" name="Enter-button">Enter</button>
+              <input id='website-title' type="text" name="link-title" placeholder="Website Title" required>
+              <input id='website-URL' type="text" name="link-url" placeholder="Website URL" required>
+              <button id="enter-button" type="button" name="Enter-button" disabled>Please Enter Title and URL</button>
           </fieldset>
         </form>
+
     </header>
 
 
 
     <section id="bookmark-wrap">
       <div class = "bookmark">
-        <h4>The Website Title</h4>
+        <h4>111111</h4>
         <hr>
         <a href="http://www.thewebsiteurl.com">www.thewebsiteurl.com</a>
         <hr>
@@ -33,7 +35,7 @@
         <button class = "bookmark-button" id = "delete-bookmark-button">Delete</button>
       </div>
       <div class = "bookmark">
-        <h4>The Website Title</h4>
+        <h4>222222</h4>
         <hr>
         <a href="http://www.thewebsiteurl.com">www.thewebsiteurl.com</a>
         <hr>
@@ -43,7 +45,7 @@
         <button class = "bookmark-button" id = "delete-bookmark-button">Delete</button>
       </div>
       <div class = "bookmark">
-        <h4>The Website Title</h4>
+        <h4>33333333</h4>
         <hr>
         <a href="http://www.thewebsiteurl.com">www.thewebsiteurl.com</a>
         <hr>
@@ -53,7 +55,7 @@
         <button class = "bookmark-button" id = "delete-bookmark-button">Delete</button>
       </div>
       <div class = "bookmark">
-        <h4>The Website Title</h4>
+        <h4>4444444</h4>
         <hr>
         <a href="http://www.thewebsiteurl.com">www.thewebsiteurl.com</a>
         <hr>
