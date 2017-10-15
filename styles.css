@@ -128,7 +128,7 @@ header img {
   text-decoration-color: #F2F4F4;
 }
 
-.bookmark #delete-bookmark-button {
+.bookmark .delete-bookmark-button {
   bottom: 10px;
   position: absolute;
   right: 10px;
@@ -141,7 +141,7 @@ header img {
   text-decoration-color: #FFC107;
 }
 
-.bookmark #delete-bookmark-button:hover {
+.bookmark .delete-bookmark-button:hover {
   font-weight: 400;
   text-decoration-color: #FFC107;
 }
@@ -158,7 +158,7 @@ header img {
   text-decoration-color: #CFD8DC;
 }
 
-.bookmark.read #read-button {
+.bookmark.read .read-button {
   color: #F05A28;
   font-weight: 800;
   text-decoration: none;
