@@ -80,6 +80,11 @@ header img {
   background-color: #ffd773;
 }
 
+#enter-button.error{
+  border:2px solid #fff;
+  background-color: red;
+}
+
 #bookmark-wrap {
   position: absolute;
   right: 0px;

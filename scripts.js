@@ -5,41 +5,59 @@ var unreadCount = 4;
 var websiteTitle = document.getElementById('website-title');
 var websiteURL = document.getElementById('website-URL');
 
-window.addEventListener('keyup', function(){
-  enterBtn.removeAttribute('style');
 
-  if (websiteTitle.value !== '' && websiteURL.value !== '') {
-    //enterBtn.removeAttribute('disabled');
-    enterBtn.innerText = 'Enter';
-  } else if (websiteTitle.value === '' || websiteURL.value === '') {
-    //enterBtn.setAttribute('disabled', true);
-    enterBtn.innerText = 'Please Enter Title and URL';
-  };
+enterBtn.addEventListener('click', function(){
+   inputValidator();
+});
+
+document.addEventListener('keyup', function(){
+  enterBtn.classList.remove('error');
 }); 
 
+function error(){
+  enterBtn.classList.add('error');
+}
+
+
 function inputValidator(){
-  console.log(websiteTitle);
-  if (websiteTitle.val() !== '' && websiteURL.val() === '') {
-    enterBtn.innerText = "Please enter a Valid URL";
-    console.log('no url')
+  if (websiteTitle.value !== '' && websiteURL.value !== '') {
+    enterBtn.innerText = 'Enter';
+  } else if (websiteTitle.value === '' && websiteURL.value === '') {
+    enterBtn.innerText = 'Please Enter a Title and URL';
+    error();
+    return false;
+  } else if (websiteTitle.value !== '' && websiteURL.value === '') {
+     enterBtn.innerText = "Please enter a Valid URL";
+     error();
+     return false;
+  } else if (websiteTitle.value === '' && websiteURL.value !== '') {
+      enterBtn.innerText = 'Please Enter a Valid Title';
+      error();
+      return false;
+  }
 
-    return;
 
- } else if (websiteTitle === '' && websiteURL !== '') {
-     enterBtn.innerText = 'Please Enter a Valid Title';
-     return;
- } else{
-    //card creator
-    // var websiteTitle = document.getElementById('website-title').value;
-    // var websiteURL = document.getElementById('website-URL').value;
-    
+    var input = websiteURL;
+  var val = input.value;
+  if (val && !val.match(/^.+:\/\/.*/)) {
+    input.value = ('http://' + val);
+  };
+  var x = input.value;
+  if (x && !x.match(/^.+\.com.*/)) {
+     enterBtn.innerText = "Please enter a Valid URL";
+     error();
+     return false;
+   };
+
+    createBookmark();
     document.querySelector('form').reset();
     cardCount = document.querySelectorAll('.bookmark').length;
     unreadCount = (cardCount - readCount);
     // enterBtn.innerText = 'Please Enter Title and URL';
     // enterBtn.setAttribute('disabled', true);
- }
-};
+ };
+
+
 
 function createBookmark(){
     var bookMarkWrap = document.getElementById('bookmark-wrap');
@@ -55,28 +73,11 @@ function createBookmark(){
     bookMarkWrap.prepend(newBookmarkCard);
   }
 
- 
-
-enterBtn.addEventListener('click', function(){
-  var input = websiteURL;
-  var val = input.value;
-  if (val && !val.match(/^.+:\/\/.*/)) {
-    input.value = ('http://' + val);
-  };
-  var x = input.value;
-  if (x && !x.match(/^.+\.com.*/)) {
-     enterBtn.innerText = "Please enter a Valid URL";
-     return;
-   };
-
-   createBookmark();
-
-});
 
 document.querySelector('#bookmark-wrap').addEventListener('click', function(event){
   if(event.target.parentNode.matches('.read') && event.target.matches('.read-button')){
       event.target.parentNode.classList.remove('read');
-      return;
+      return false;
     }
   if(event.target.matches('.delete-bookmark-button')) {
     event.target.parentNode.remove();
@@ -84,7 +85,6 @@ document.querySelector('#bookmark-wrap').addEventListener('click', function(even
   if(event.target.matches('.read-button')) {
     event.target.parentNode.classList.add('read');
     }
-    
 });
 
 // $('.delete-bookmark-button').on('click', function() {
