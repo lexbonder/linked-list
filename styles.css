@@ -19,7 +19,6 @@ body {
   background-color: #455a64;
   font-family: 'Open Sans', sans-serif;
 }
-
 input, 
 button {
   outline: none;
@@ -42,22 +41,24 @@ header {
 }
 
 header h1 {
+  margin-bottom: 60px;
+
   color: #fff;
-  font-size: 3.313em;
+  font-size: 5.5em;
   text-align: center;
 }
 
 header img {
   display: inline;
-  height: 45px;
+  height: 75px;
 }
 
 #link-form input {
   display: block;
   height: 40px;
-  margin:10px 0;
+  margin: 10px auto 50px;
   padding-left: 10px;
-  width: 100%;
+  width: 75%;
 
   font-size: 1.25em;
 }
@@ -65,8 +66,10 @@ header img {
 #enter-button {
   border: none;
   border-radius: 0px;
+  display: block;
   height: 40px;
-  width: 100%;
+  margin: auto;
+  width: 75%;
   
   background-color: #ffc107;
   color:#fff;
@@ -76,8 +79,19 @@ header img {
   text-align: center;
 }
 
+
 #enter-button:hover {
   background-color: #ffd773;
+}
+
+#enter-button:disabled {
+  background-color: #cfd8dc;
+  cursor: auto;
+}
+
+#enter-button.error {
+  background-color: #F05A28;
+  border: 2px solid #fff;
 }
 
 #bookmark-wrap {
