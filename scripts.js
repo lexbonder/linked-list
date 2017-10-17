@@ -65,7 +65,9 @@ function keyupButtonReset() {
     enterBtnReset();
   };
 };
-
+var displayReadCount = document.getElementById('read-number');
+var displayUnreadCount = document.getElementById('unread-number');
+var displayCardCount = document.getElementById('card-number');
 function recalculateBookmarks() {
   var cardCount = 0;
   var readCount = 0;
@@ -73,11 +75,15 @@ function recalculateBookmarks() {
   cardCount = document.querySelectorAll('.bookmark').length;
   readCount = document.querySelectorAll('.read').length;
   unreadCount = (cardCount - readCount);
+  displayReadCount.innerText = readCount;
+  displayCardCount.innerText = cardCount;
+  displayUnreadCount.innerText = unreadCount;
+
   console.log(`${cardCount}, ${readCount}, ${unreadCount}`);
 };
 
 function urlValidator() {
-    var input = websiteURL;
+  var input = websiteURL;
   var val = input.value;
   if (val && !val.match(/^.+:\/\/.*/)) {
     input.value = ('http://' + val);
@@ -91,7 +97,10 @@ function urlValidator() {
   inputValidator();
 }
 
-enterBtn.addEventListener('click', urlValidator);
+enterBtn.addEventListener('click', function(event){
+  event.preventDefault();
+  urlValidator();
+});
 
 window.addEventListener('keyup', keyupButtonReset);
 

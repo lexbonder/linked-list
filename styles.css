@@ -41,26 +41,30 @@ header {
 }
 
 header h1 {
-  margin-bottom: 60px;
+  margin-bottom: 45px;
 
   color: #fff;
-  font-size: 5.5em;
+  font-size: 4.5vw;
   text-align: center;
 }
 
 header img {
   display: inline;
-  height: 75px;
+  height: 4vw;
 }
 
 #link-form input {
   display: block;
-  height: 40px;
+  height: 45px;
   margin: 10px auto 50px;
   padding-left: 10px;
   width: 75%;
 
-  font-size: 1.25em;
+  font-size: 1.7em;
+}
+
+#link-form input::placeholder {
+  color: #BBBDBF;
 }
 
 #enter-button {
@@ -94,6 +98,32 @@ header img {
   border: 2px solid #fff;
 }
 
+#counter-wrap{
+  position: relative;
+  margin:30px auto;
+  width:100px;
+}
+
+#counter-wrap h2{
+  color: #ffc107;
+  font-weight: 800;
+  text-decoration: underline;
+  font-size: 1.063em;
+}
+
+#counter-wrap ul li{
+  position: relative;
+  margin: 5px 0;
+  color: #fff;
+  font-weight: 400;
+}
+
+#counter-wrap ul li span{
+position: absolute;
+right: 0;
+color: #ffc107;
+}
+
 #bookmark-wrap {
   position: absolute;
   right: 0px;
@@ -112,7 +142,7 @@ header img {
   border: 2px solid #607D8B;
   display: block;
   margin: 10px;
-  padding: 10px;
+  padding: 10px 10px 3px;
 
   background-color: white;
 }
@@ -120,12 +150,15 @@ header img {
 .bookmark h4 {
   color: #455A64;
   font-weight: 800;
+  font-size: 1.438em;
+  padding-bottom: 5px;
 }
 
 .bookmark a {
   color: #607D8B;
   text-decoration: underline;
   text-decoration-color: #f2f4f4;
+  line-height: 1.875em;
 }
 
 .bookmark hr {
@@ -140,10 +173,10 @@ header img {
   background-color: transparent;
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
+  font-size: 0.938em;
 }
 
 .bookmark .delete-bookmark-button {
-  bottom: 10px;
   position: absolute;
   right: 10px;
 }
@@ -178,6 +211,8 @@ header img {
   text-decoration: none;
 }
 
+
+
 @media screen and (max-width : 865px) {
   header {
     display: block;
@@ -185,16 +220,42 @@ header img {
     width:100%;
   }
 
+  #link-form input{
+    margin: 0px auto 30px;
+    width: 50%;
+  }
+
+  #enter-button{
+    width: 50%;
+  }
+
   header h1 {
-    font-size: 2.5em;
+    font-size: 1.75em;
+    margin-bottom: 30px;
   }
 
   header img {
-    height: 35px;
+    height: 28px;
   }
 
   #bookmark-wrap {
     display: block;
     width:100%;
+  }
+}
+
+@media screen and (max-width : 650px) {
+  #link-form input{
+    width: 100%;
+  }
+
+  #enter-button{
+    width: 100%;
+  }
+
+  #bookmark-wrap{
+    position: fixed;
+    bottom: 0;
+    height: 45%;
   }
 }
