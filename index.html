@@ -16,9 +16,17 @@
           <fieldset>
             <input id='website-title' type="text" name="link-title" placeholder="Website Title" >
             <input id='website-URL' type="text" name="link-url" placeholder="Website URL" >
-            <button id="enter-button" type="button" name="Enter-button" disabled>Please Enter Title and URL</button>
+            <button id="enter-button" type="submit" name="Enter-button" disabled>Please Enter Title and URL</button>
           </fieldset>
         </form>
+        <article id='counter-wrap'>
+          <h2>Card Count</h2>
+          <ul>
+            <li>Read: <span id='read-number'>0</span></li>
+            <li>Unread: <span id='unread-number'>0</span></li>
+            <li>Total: <span id='card-number'>0</span></li>
+          </ul>
+        </article>
       </header>
       <section id="bookmark-wrap"></section>
     </main>
