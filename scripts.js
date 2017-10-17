@@ -55,7 +55,7 @@ function inputValidator(){
   };
 };
 
-function keyupButtonReset() {
+function keydownButtonReset() {
   if (websiteTitle.value !== '' || websiteURL.value !== '') {
     enterBtnEnable();
     enterBtnReset();
@@ -65,6 +65,7 @@ function keyupButtonReset() {
     enterBtnReset();
   };
 };
+
 var displayReadCount = document.getElementById('read-number');
 var displayUnreadCount = document.getElementById('unread-number');
 var displayCardCount = document.getElementById('card-number');
@@ -102,18 +103,18 @@ enterBtn.addEventListener('click', function(event){
   urlValidator();
 });
 
-window.addEventListener('keyup', keyupButtonReset);
+window.addEventListener('keydown', keydownButtonReset);
 
 document.querySelector('#bookmark-wrap').addEventListener('click', function(event) {
   if (event.target.parentNode.matches('.read') && event.target.matches('.read-button')) {
     event.target.parentNode.classList.remove('read');
     recalculateBookmarks();
     return;
-  }
+  };
   if (event.target.matches('.delete-bookmark-button')) {
     event.target.parentNode.remove();
     recalculateBookmarks();
-  }
+  };
   if (event.target.matches('.read-button')) {
     event.target.parentNode.classList.add('read');
     recalculateBookmarks();
