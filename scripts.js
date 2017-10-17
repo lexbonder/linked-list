@@ -27,18 +27,40 @@ function enterBtnEnable() {
 
 function enterBtnReset() {
   enterBtn.innerText = 'Please Enter Title and URL';
+  enterBtn.classList.remove('error');
+};
+
+function error() {
+  enterBtn.classList.add('error');
 };
 
 function inputValidator(){
-  if (websiteTitle.value !== '' && websiteURL.value === '') {
+  if (websiteTitle.value === '' && websiteURL.value === '') {
+    enterBtnReset();
+    error();
+    return;
+  } else if (websiteTitle.value !== '' && websiteURL.value === '') {
     enterBtn.innerText = "Please enter a Valid URL";
+    error();
     return;
   } else if (websiteTitle.value === '' && websiteURL.value !== '') {
     enterBtn.innerText = 'Please Enter a Valid Title';
+    error();
     return;
   } else {
     createBookmark();
     recalculateBookmarks();
+    enterBtnDisable();
+    enterBtnReset();
+  };
+};
+
+function keyupButtonReset() {
+  if (websiteTitle.value !== '' || websiteURL.value !== '') {
+    enterBtnEnable();
+    enterBtnReset();
+    enterBtn.innerText = 'Enter';
+  } else if (websiteTitle.value === '' && websiteURL.value === '') {
     enterBtnDisable();
     enterBtnReset();
   };
@@ -54,19 +76,8 @@ function recalculateBookmarks() {
   console.log(`${cardCount}, ${readCount}, ${unreadCount}`);
 };
 
-window.addEventListener('keyup', function() {
-  if (websiteTitle.value !== '' || websiteURL.value !== '') {
-    enterBtnEnable();
-    enterBtn.innerText = 'Enter';
-  } else if (websiteTitle.value === '' && websiteURL.value === '') {
-    enterBtnDisable();
-    enterBtnReset();
-  };
-}); 
-
-enterBtn.addEventListener('click', function() {
-// -------This Doesn't work if I take it out and move it to it's own function
-  var input = websiteURL;
+function urlValidator() {
+    var input = websiteURL;
   var val = input.value;
   if (val && !val.match(/^.+:\/\/.*/)) {
     input.value = ('http://' + val);
@@ -74,11 +85,15 @@ enterBtn.addEventListener('click', function() {
   var x = input.value;
   if (x && !x.match(/^.+\.com.*/)) {
     enterBtn.innerText = "Please enter a Valid URL";
+    error();
     return;
   };
-// --------------------------
   inputValidator();
-});
+}
+
+enterBtn.addEventListener('click', urlValidator);
+
+window.addEventListener('keyup', keyupButtonReset);
 
 document.querySelector('#bookmark-wrap').addEventListener('click', function(event) {
   if (event.target.parentNode.matches('.read') && event.target.matches('.read-button')) {
