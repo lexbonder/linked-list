@@ -6,47 +6,96 @@ var websiteTitle = document.getElementById('website-title');
 var websiteURL = document.getElementById('website-URL');
 
 window.addEventListener('keyup', function(){
+  enterBtn.removeAttribute('style');
+
   if (websiteTitle.value !== '' && websiteURL.value !== '') {
-    enterBtn.removeAttribute('disabled');
+    //enterBtn.removeAttribute('disabled');
     enterBtn.innerText = 'Enter';
   } else if (websiteTitle.value === '' || websiteURL.value === '') {
-    enterBtn.setAttribute('disabled', true);
+    //enterBtn.setAttribute('disabled', true);
     enterBtn.innerText = 'Please Enter Title and URL';
   };
 }); 
 
-$("#website-URL").blur(function() {
-  var input = $(this);
-  var val = input.val();
-  if (val && !val.match(/^.+:\/\/.*/)) {
-    input.val('http://' + val);
-  };
-  var x = input.val();
-  if (x && !x.match(/^.+\.com.*/)) {
-    input.val(x + '.com');
-  };
-});  
+function inputValidator(){
+  console.log(websiteTitle);
+  if (websiteTitle.val() !== '' && websiteURL.val() === '') {
+    enterBtn.innerText = "Please enter a Valid URL";
+    console.log('no url')
 
-$('#enter-button').on('click', function() {
-  var websiteTitle = document.getElementById('website-title').value;
-  var websiteURL = document.getElementById('website-URL').value;
-  $('#bookmark-wrap').prepend('<div class = "bookmark"><h4>' + websiteTitle + '</h4><hr><a href="' + websiteURL + '">' + websiteURL + '</a><hr><button title = "Read button" class = "bookmark-button read-button">Read</button><button title = "Delete button" class = "bookmark-button delete-bookmark-button">Delete</button></div>');
-  document.querySelector('form').reset();
-  cardCount = document.querySelectorAll('.bookmark').length;
-  unreadCount = (cardCount - readCount);
-  enterBtn.innerText = 'Please Enter Title and URL';
-  enterBtn.setAttribute('disabled', true);
-});
+    return;
 
-$(document).on('click', ".delete-bookmark-button", function() {
-  $(this).parent().remove();
-  cardCount = document.querySelectorAll('.bookmark').length;
-  readCount = document.querySelectorAll('.read').length;
-  unreadCount = (cardCount - readCount);
-});
-
-$(document).on('click', ".read-button", function() {
-    $(this).parent().toggleClass('read');
-    readCount = document.querySelectorAll('.read').length;
+ } else if (websiteTitle === '' && websiteURL !== '') {
+     enterBtn.innerText = 'Please Enter a Valid Title';
+     return;
+ } else{
+    //card creator
+    // var websiteTitle = document.getElementById('website-title').value;
+    // var websiteURL = document.getElementById('website-URL').value;
+    
+    document.querySelector('form').reset();
+    cardCount = document.querySelectorAll('.bookmark').length;
     unreadCount = (cardCount - readCount);
+    // enterBtn.innerText = 'Please Enter Title and URL';
+    // enterBtn.setAttribute('disabled', true);
+ }
+};
+
+function createBookmark(){
+    var bookMarkWrap = document.getElementById('bookmark-wrap');
+    var newBookmarkCard = document.createElement('article');
+    newBookmarkCard.classList.add('bookmark');
+    newBookmarkCard.innerHTML = 
+     `<h4>${websiteTitle.value}</h4>
+      <hr>
+      <a target='_blank' href="${websiteURL.value}">${websiteURL.value}</a>
+      <hr>
+      <button title = "Read button" class = "bookmark-button read-button">Read</button>
+      <button title = "Delete button" class = "bookmark-button delete-bookmark-button">Delete</button>`
+    bookMarkWrap.prepend(newBookmarkCard);
+  }
+
+ 
+
+enterBtn.addEventListener('click', function(){
+  var input = websiteURL;
+  var val = input.value;
+  if (val && !val.match(/^.+:\/\/.*/)) {
+    input.value = ('http://' + val);
+  };
+  var x = input.value;
+  if (x && !x.match(/^.+\.com.*/)) {
+     enterBtn.innerText = "Please enter a Valid URL";
+     return;
+   };
+
+   createBookmark();
+
 });
+
+document.querySelector('#bookmark-wrap').addEventListener('click', function(event){
+  if(event.target.parentNode.matches('.read') && event.target.matches('.read-button')){
+      event.target.parentNode.classList.remove('read');
+      return;
+    }
+  if(event.target.matches('.delete-bookmark-button')) {
+    event.target.parentNode.remove();
+    }
+  if(event.target.matches('.read-button')) {
+    event.target.parentNode.classList.add('read');
+    }
+    
+});
+
+// $('.delete-bookmark-button').on('click', function() {
+//   $(this).parent().remove();
+//   cardCount = document.querySelectorAll('.bookmark').length;
+//   readCount = document.querySelectorAll('.read').length;
+//   unreadCount = (cardCount - readCount);
+// });
+
+// $(document).on('click', ".read-button", function() {
+//     $(this).parent().toggleClass('read');
+//     readCount = document.querySelectorAll('.read').length;
+//     unreadCount = (cardCount - readCount);
+// });
