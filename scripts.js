@@ -1,63 +1,71 @@
-var cardCount = 4;
 var enterBtn = document.getElementById('enter-button');
-var readCount = 0;
-var unreadCount = 4;
 var websiteTitle = document.getElementById('website-title');
 var websiteURL = document.getElementById('website-URL');
 
-window.addEventListener('keyup', function(){
-  enterBtn.removeAttribute('style');
+function createBookmark() {
+  var bookmarkWrap = document.getElementById('bookmark-wrap');
+  var newBookmark = document.createElement('article');
+  newBookmark.classList.add('bookmark');
+  newBookmark.innerHTML = 
+   `<h4>${websiteTitle.value}</h4>
+    <hr>
+    <a target='_blank' href="${websiteURL.value}">${websiteURL.value}</a>
+    <hr>
+    <button title = "Read button" class = "bookmark-button read-button">Read</button>
+    <button title = "Delete button" class = "bookmark-button delete-bookmark-button">Delete</button>`
+  bookmarkWrap.prepend(newBookmark);
+  document.querySelector('form').reset();
+};
 
-  if (websiteTitle.value !== '' && websiteURL.value !== '') {
-    //enterBtn.removeAttribute('disabled');
+function enterBtnDisable() {
+  enterBtn.setAttribute('disabled', true);
+};
+
+function enterBtnEnable() {
+  enterBtn.removeAttribute('disabled');
+};
+
+function enterBtnReset() {
+  enterBtn.innerText = 'Please Enter Title and URL';
+};
+
+function inputValidator(){
+  if (websiteTitle.value !== '' && websiteURL.value === '') {
+    enterBtn.innerText = "Please enter a Valid URL";
+    return;
+  } else if (websiteTitle.value === '' && websiteURL.value !== '') {
+    enterBtn.innerText = 'Please Enter a Valid Title';
+    return;
+  } else {
+    createBookmark();
+    recalculateBookmarks();
+    enterBtnDisable();
+    enterBtnReset();
+  };
+};
+
+function recalculateBookmarks() {
+  var cardCount = 0;
+  var readCount = 0;
+  var unreadCount = 0;
+  cardCount = document.querySelectorAll('.bookmark').length;
+  readCount = document.querySelectorAll('.read').length;
+  unreadCount = (cardCount - readCount);
+  console.log(`${cardCount}, ${readCount}, ${unreadCount}`);
+};
+
+window.addEventListener('keyup', function() {
+  if (websiteTitle.value !== '' || websiteURL.value !== '') {
+    enterBtnEnable();
     enterBtn.innerText = 'Enter';
-  } else if (websiteTitle.value === '' || websiteURL.value === '') {
-    //enterBtn.setAttribute('disabled', true);
-    enterBtn.innerText = 'Please Enter Title and URL';
+  } else if (websiteTitle.value === '' && websiteURL.value === '') {
+    enterBtnDisable();
+    enterBtnReset();
   };
 }); 
 
-function inputValidator(){
-  console.log(websiteTitle);
-  if (websiteTitle.val() !== '' && websiteURL.val() === '') {
-    enterBtn.innerText = "Please enter a Valid URL";
-    console.log('no url')
-
-    return;
-
- } else if (websiteTitle === '' && websiteURL !== '') {
-     enterBtn.innerText = 'Please Enter a Valid Title';
-     return;
- } else{
-    //card creator
-    // var websiteTitle = document.getElementById('website-title').value;
-    // var websiteURL = document.getElementById('website-URL').value;
-    
-    document.querySelector('form').reset();
-    cardCount = document.querySelectorAll('.bookmark').length;
-    unreadCount = (cardCount - readCount);
-    // enterBtn.innerText = 'Please Enter Title and URL';
-    // enterBtn.setAttribute('disabled', true);
- }
-};
-
-function createBookmark(){
-    var bookMarkWrap = document.getElementById('bookmark-wrap');
-    var newBookmarkCard = document.createElement('article');
-    newBookmarkCard.classList.add('bookmark');
-    newBookmarkCard.innerHTML = 
-     `<h4>${websiteTitle.value}</h4>
-      <hr>
-      <a target='_blank' href="${websiteURL.value}">${websiteURL.value}</a>
-      <hr>
-      <button title = "Read button" class = "bookmark-button read-button">Read</button>
-      <button title = "Delete button" class = "bookmark-button delete-bookmark-button">Delete</button>`
-    bookMarkWrap.prepend(newBookmarkCard);
-  }
-
- 
-
-enterBtn.addEventListener('click', function(){
+enterBtn.addEventListener('click', function() {
+// -------This Doesn't work if I take it out and move it to it's own function
   var input = websiteURL;
   var val = input.value;
   if (val && !val.match(/^.+:\/\/.*/)) {
@@ -65,37 +73,25 @@ enterBtn.addEventListener('click', function(){
   };
   var x = input.value;
   if (x && !x.match(/^.+\.com.*/)) {
-     enterBtn.innerText = "Please enter a Valid URL";
-     return;
-   };
-
-   createBookmark();
-
+    enterBtn.innerText = "Please enter a Valid URL";
+    return;
+  };
+// --------------------------
+  inputValidator();
 });
 
-document.querySelector('#bookmark-wrap').addEventListener('click', function(event){
-  if(event.target.parentNode.matches('.read') && event.target.matches('.read-button')){
-      event.target.parentNode.classList.remove('read');
-      return;
-    }
-  if(event.target.matches('.delete-bookmark-button')) {
+document.querySelector('#bookmark-wrap').addEventListener('click', function(event) {
+  if (event.target.parentNode.matches('.read') && event.target.matches('.read-button')) {
+    event.target.parentNode.classList.remove('read');
+    recalculateBookmarks();
+    return;
+  }
+  if (event.target.matches('.delete-bookmark-button')) {
     event.target.parentNode.remove();
-    }
-  if(event.target.matches('.read-button')) {
+    recalculateBookmarks();
+  }
+  if (event.target.matches('.read-button')) {
     event.target.parentNode.classList.add('read');
-    }
-    
+    recalculateBookmarks();
+  };
 });
-
-// $('.delete-bookmark-button').on('click', function() {
-//   $(this).parent().remove();
-//   cardCount = document.querySelectorAll('.bookmark').length;
-//   readCount = document.querySelectorAll('.read').length;
-//   unreadCount = (cardCount - readCount);
-// });
-
-// $(document).on('click', ".read-button", function() {
-//     $(this).parent().toggleClass('read');
-//     readCount = document.querySelectorAll('.read').length;
-//     unreadCount = (cardCount - readCount);
-// });
