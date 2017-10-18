@@ -87,7 +87,6 @@ header img {
 }
 
 #clear-read {
-  display: none;
   margin: 10px auto;
 }
 
@@ -96,8 +95,10 @@ header img {
   background-color: #ffd773;
 }
 
-#enter-button:disabled {
+#enter-button:disabled,
+#clear-read:disabled {
   background-color: #cfd8dc;
+  border: 1px solid #455a64;
   cursor: auto;
 }
 
@@ -184,14 +185,12 @@ header img {
   position: absolute;
   right: 10px;
 }
-
 .bookmark a:hover,
 .bookmark button:hover {
   color: #455A64;
   font-weight: 800;
   text-decoration-color: #FFC107;
 }
-
 .bookmark .delete-bookmark-button:hover {
   font-weight: 400;
   text-decoration-color: #FFC107;
