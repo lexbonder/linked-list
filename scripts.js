@@ -1,3 +1,7 @@
+var clearReadButton = document.getElementById('clear-read');
+var displayCardCount = document.getElementById('card-number');
+var displayReadCount = document.getElementById('read-number');
+var displayUnreadCount = document.getElementById('unread-number');
 var enterBtn = document.getElementById('enter-button');
 var websiteTitle = document.getElementById('website-title');
 var websiteURL = document.getElementById('website-URL');
@@ -34,7 +38,7 @@ function error() {
   enterBtn.classList.add('error');
 };
 
-function inputValidator(){
+function inputValidator() {
   if (websiteTitle.value === '' && websiteURL.value === '') {
     enterBtnReset();
     error();
@@ -66,21 +70,22 @@ function keydownButtonReset() {
   };
 };
 
-var displayReadCount = document.getElementById('read-number');
-var displayUnreadCount = document.getElementById('unread-number');
-var displayCardCount = document.getElementById('card-number');
 function recalculateBookmarks() {
-  var cardCount = 0;
-  var readCount = 0;
-  var unreadCount = 0;
+  var cardCount = 0, readCount = 0, unreadCount = 0;
   cardCount = document.querySelectorAll('.bookmark').length;
   readCount = document.querySelectorAll('.read').length;
   unreadCount = (cardCount - readCount);
   displayReadCount.innerText = readCount;
   displayCardCount.innerText = cardCount;
   displayUnreadCount.innerText = unreadCount;
+};
 
-  console.log(`${cardCount}, ${readCount}, ${unreadCount}`);
+function toggleClearButton() {
+  if (parseInt(displayReadCount.innerText) > 0) {
+    clearReadButton.style.display = 'block';
+  } else {
+    clearReadButton.style.display = 'none';
+  };
 };
 
 function urlValidator() {
@@ -96,9 +101,15 @@ function urlValidator() {
     return;
   };
   inputValidator();
-}
+};
 
-enterBtn.addEventListener('click', function(event){
+// ------Can't get this part to work yet--------
+// clearReadButton.addEventListener('click', function(event){
+//   event.preventDefault();
+//   this.parentNode.removeChild('.read');
+// });
+
+enterBtn.addEventListener('click', function(event) {
   event.preventDefault();
   urlValidator();
 });
@@ -109,14 +120,19 @@ document.querySelector('#bookmark-wrap').addEventListener('click', function(even
   if (event.target.parentNode.matches('.read') && event.target.matches('.read-button')) {
     event.target.parentNode.classList.remove('read');
     recalculateBookmarks();
+    toggleClearButton();
     return;
   };
   if (event.target.matches('.delete-bookmark-button')) {
     event.target.parentNode.remove();
     recalculateBookmarks();
+    toggleClearButton();
   };
   if (event.target.matches('.read-button')) {
     event.target.parentNode.classList.add('read');
     recalculateBookmarks();
+    toggleClearButton();
   };
 });
+
+
