@@ -3,6 +3,7 @@ var displayCardCount = document.getElementById('card-number');
 var displayReadCount = document.getElementById('read-number');
 var displayUnreadCount = document.getElementById('unread-number');
 var enterBtn = document.getElementById('enter-button');
+var readBookmarks;
 var websiteTitle = document.getElementById('website-title');
 var websiteURL = document.getElementById('website-URL');
 
@@ -72,8 +73,9 @@ function keydownButtonReset() {
 
 function recalculateBookmarks() {
   var cardCount = 0, readCount = 0, unreadCount = 0;
+  readBookmarks = document.querySelectorAll('.read');
   cardCount = document.querySelectorAll('.bookmark').length;
-  readCount = document.querySelectorAll('.read').length;
+  readCount = readBookmarks.length;
   unreadCount = (cardCount - readCount);
   displayReadCount.innerText = readCount;
   displayCardCount.innerText = cardCount;
@@ -82,9 +84,11 @@ function recalculateBookmarks() {
 
 function toggleClearButton() {
   if (parseInt(displayReadCount.innerText) > 0) {
-    clearReadButton.style.display = 'block';
+    clearReadButton.removeAttribute('disabled');
+    clearReadButton.innerText = 'Clear ' + readBookmarks.length + ' Read Bookmark(s)';
   } else {
-    clearReadButton.style.display = 'none';
+    clearReadButton.setAttribute('disabled', true);
+    clearReadButton.innerText = 'No Read Bookmarks';
   };
 };
 
@@ -103,15 +107,10 @@ function urlValidator() {
   inputValidator();
 };
 
-// ------Can't get this part to work yet--------
-// clearReadButton.addEventListener('click', function(event){
-//   event.preventDefault();
-//   this.parentNode.removeChild('.read');
-// });
-
 enterBtn.addEventListener('click', function(event) {
   event.preventDefault();
   urlValidator();
+  websiteTitle.focus();
 });
 
 window.addEventListener('keydown', keydownButtonReset);
@@ -133,6 +132,11 @@ document.querySelector('#bookmark-wrap').addEventListener('click', function(even
     recalculateBookmarks();
     toggleClearButton();
   };
+  if (event.target.matches('#clear-read')) {
+    for (var i = 0; i < readBookmarks.length; i++) {
+      readBookmarks[i].remove();
+    };
+    recalculateBookmarks();
+    toggleClearButton();
+  };
 });
-
-
