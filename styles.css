@@ -86,6 +86,10 @@ header img {
 }
 
 #clear-read {
+  position: absolute;
+  top: 0px;
+  left: 12.5%;
+
   margin: 10px auto;
 }
 
@@ -139,6 +143,7 @@ header img {
   display: inline-block;
   height: 100%;
   overflow-y: auto;
+  padding-top: 50px;
   width: 50%;
 
   background-color: #cfd8dc;
@@ -259,6 +264,8 @@ header img {
   }
 
   #clear-read {
+    left: 7.5%;
+
     width: 85%;
   }
 
