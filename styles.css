@@ -33,8 +33,7 @@ header {
   vertical-align: top;
 
   display: inline-block;
-  margin: 15% auto 30px auto;
-  min-width: 400px;
+  margin: 145px auto 30px auto;
   padding: 0 30px;
   width: 50%;
 
@@ -109,7 +108,9 @@ header img {
 
 #counter-wrap {
   margin: 30px auto;
-  width: 100px;
+  width: 75%;
+
+  text-align: center;
 }
 
 #counter-wrap h2 {
@@ -120,7 +121,9 @@ header img {
 }
 
 #counter-wrap ul li {
-  margin: 5px 0px;
+  display: inline-block;
+  margin: 5px 10px;
+  
   color: #fff;
   font-weight: 400;
 }
@@ -223,22 +226,10 @@ header img {
 
   header h1 {
     margin-bottom: 30px;
-    
-    font-size: 1.75em;
-  }
-
-  header img {
-    height: 28px;
   }
 
   #link-form input {
     margin: 0px auto 30px;
-    width: 50%;
-  }
-
-  #clear-read,
-  #enter-button {
-    width: 50%;
   }
 
   #bookmark-wrap {
@@ -248,15 +239,18 @@ header img {
 }
 
 @media screen and (max-width : 650px) {
-  #counter-wrap {
-    width: 75%;
-
-    text-align: center;
+  header h1 {
+    font-size: 6.5vw;
   }
 
-  #counter-wrap ul li {
-    display: inline-block;
-    margin: 5px 10px;
+  header img {
+    height: 6vw;
+  }
+
+  #counter-wrap {
+    width: 100%;
+
+    text-align: center;
   }
 
    #enter-button,
@@ -273,5 +267,12 @@ header img {
     bottom: 0;
 
     height: 45%;
+  }
+}
+
+@media screen and (max-width : 400px) {
+  #enter-button,
+  #clear-read {
+  font-weight: 400;
   }
 }
