@@ -19,6 +19,7 @@ body {
   background-color: #455a64;
   font-family: 'Open Sans', sans-serif;
 }
+
 input, 
 button {
   outline: none;
@@ -35,7 +36,7 @@ header {
   margin: 15% auto 30px auto;
   min-width: 400px;
   padding: 0 30px;
-  width:50%;
+  width: 50%;
 
   font-weight: 800;
 }
@@ -67,7 +68,9 @@ header img {
   color: #BBBDBF;
 }
 
-#enter-button {
+
+#enter-button,
+#clear-read {
   border: none;
   border-radius: 0px;
   display: block;
@@ -76,11 +79,16 @@ header img {
   width: 75%;
   
   background-color: #ffc107;
-  color:#fff;
+  color: #fff;
   cursor: pointer;
   font-size: 1.25em;
   font-weight: 800;
   text-align: center;
+}
+
+#clear-read {
+  display: none;
+  margin: 10px auto;
 }
 
 
@@ -98,30 +106,26 @@ header img {
   border: 2px solid #fff;
 }
 
-#counter-wrap{
-  position: relative;
-  margin:30px auto;
-  width:100px;
+#counter-wrap {
+  margin: 30px auto;
+  width: 100px;
 }
 
-#counter-wrap h2{
+#counter-wrap h2 {
   color: #ffc107;
   font-weight: 800;
   text-decoration: underline;
   font-size: 1.063em;
 }
 
-#counter-wrap ul li{
-  position: relative;
-  margin: 5px 0;
+#counter-wrap ul li {
+  margin: 5px 0px;
   color: #fff;
   font-weight: 400;
 }
 
-#counter-wrap ul li span{
-position: absolute;
-right: 0;
-color: #ffc107;
+#counter-wrap ul li span {
+  color: #ffc107;
 }
 
 #bookmark-wrap {
@@ -131,7 +135,7 @@ color: #ffc107;
   display: inline-block;
   height: 100%;
   overflow-y: auto;
-  width:50%;
+  width: 50%;
 
   background-color: #cfd8dc;
 }
@@ -161,10 +165,6 @@ color: #ffc107;
   line-height: 1.875em;
 }
 
-.bookmark hr {
-  color: #CFD8DC;
-}
-
 .bookmark button {
   border: none;
 
@@ -174,6 +174,10 @@ color: #ffc107;
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
   font-size: 0.938em;
+}
+
+.bookmark hr {
+  color: #CFD8DC;
 }
 
 .bookmark .delete-bookmark-button {
@@ -211,51 +215,64 @@ color: #ffc107;
   text-decoration: none;
 }
 
-
-
 @media screen and (max-width : 865px) {
   header {
     display: block;
     margin: 30px auto;
-    width:100%;
-  }
-
-  #link-form input{
-    margin: 0px auto 30px;
-    width: 50%;
-  }
-
-  #enter-button{
-    width: 50%;
+    width: 100%;
   }
 
   header h1 {
-    font-size: 1.75em;
     margin-bottom: 30px;
+    
+    font-size: 1.75em;
   }
 
   header img {
     height: 28px;
   }
 
+  #link-form input {
+    margin: 0px auto 30px;
+    width: 50%;
+  }
+
+  #clear-read,
+  #enter-button {
+    width: 50%;
+  }
+
   #bookmark-wrap {
     display: block;
-    width:100%;
+    width: 100%;
   }
 }
 
 @media screen and (max-width : 650px) {
-  #link-form input{
+  #counter-wrap {
+    width: 75%;
+
+    text-align: center;
+  }
+
+  #counter-wrap ul li {
+    display: inline-block;
+    margin: 5px 10px;
+  }
+
+   #enter-button,
+   #link-form input {
     width: 100%;
   }
 
-  #enter-button{
-    width: 100%;
+  #clear-read {
+    width: 85%;
   }
 
-  #bookmark-wrap{
+  #bookmark-wrap {
     position: fixed;
     bottom: 0;
+
     height: 45%;
   }
 }
