@@ -132,7 +132,7 @@ header img {
   font-weight: 400;
 }
 
-#counter-wrap ul li span {
+#counter-wrap span {
   color: #ffc107;
 }
 
@@ -158,6 +158,19 @@ header img {
   padding: 10px 10px 3px;
 
   background-color: white;
+
+  -webkit-animation: mymove 1s ease-in, fadein .5s ease-in alternate; 
+  animation: mymove 1s ease-in, fadein .5s ease-in alternate;
+}
+
+@keyframes mymove {
+    0%   {left: 500px;}
+    100% {left: 10px;}
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .bookmark h4 {
@@ -193,12 +206,14 @@ header img {
   position: absolute;
   right: 10px;
 }
+
 .bookmark a:hover,
 .bookmark button:hover {
   color: #455A64;
   font-weight: 800;
   text-decoration-color: #FFC107;
 }
+
 .bookmark .delete-bookmark-button:hover {
   font-weight: 400;
   text-decoration-color: #FFC107;
@@ -223,6 +238,7 @@ header img {
 }
 
 @media screen and (max-width : 865px) {
+
   header {
     display: block;
     margin: 30px auto;
@@ -244,6 +260,7 @@ header img {
 }
 
 @media screen and (max-width : 650px) {
+
   header h1 {
     font-size: 6.5vw;
   }
@@ -278,6 +295,7 @@ header img {
 }
 
 @media screen and (max-width : 400px) {
+
   #enter-button,
   #clear-read {
   font-weight: 400;
