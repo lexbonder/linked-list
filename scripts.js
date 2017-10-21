@@ -99,7 +99,7 @@ function urlValidator() {
     input.value = ('http://' + val);
   };
   var x = input.value;
-  if (x && !x.match(/^.+\.com.*/)) {
+  if (x && !x.match(/^.+\.com.*/)$) {
     enterBtn.innerText = "Please enter a Valid URL";
     error();
     return;
