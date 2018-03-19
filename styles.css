@@ -67,7 +67,6 @@ header img {
   color: #BBBDBF;
 }
 
-
 #enter-button,
 #clear-read {
   border: none;
@@ -295,7 +294,7 @@ header img {
 }
 
 @media screen and (max-width : 400px) {
-  
+
   #enter-button,
   #clear-read {
   font-weight: 400;
